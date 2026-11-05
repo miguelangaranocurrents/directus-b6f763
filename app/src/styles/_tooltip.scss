@@ -1,3 +1,9 @@
+// The tooltip stays mounted while closed (see app-tooltip.vue), so its popper wrapper would otherwise
+// keep intercepting pointer events where the tooltip was last shown.
+[data-reka-popper-content-wrapper]:has(> .tooltip[data-state='closed']) {
+	pointer-events: none;
+}
+
 .tooltip {
 	--tooltip-foreground-color: var(--foreground-inverted);
 	--tooltip-background-color: var(--background-inverted);
